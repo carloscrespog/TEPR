@@ -33,4 +33,4 @@
 +find(City_From,City_To,Day,Month,Year): true
 	<-  
 		findTravel(12345,City_From, City_To,Day, Month, Year).
-		//findTravel(12345, madrid, barcelona, 9, 5, 2012).
+	
