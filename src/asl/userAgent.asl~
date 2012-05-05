@@ -11,7 +11,7 @@
 
 // When the literal has the specific format
 
-//    journey(From, To, Departure, Arrival, fare(FName, FPrice))
+//    journey(From, To, Departure, Arrival, fare(FName, FPrice)), journey(madrid, valencia, time(13,30), time(15,45), fare(turista, 22,50))
 
 // the client prints me data in a special format, as it recognizes
 // it as a journey.
@@ -23,4 +23,4 @@
 /* Plans*/
 
 @msg
-+user_msg(Msg) : true <- sendUser("Hello world!!").
++user_msg(Msg) : true <- sendUser(journey(madrid, valencia, time(13,30), time(15,45), fare(turista, 22,50))).

@@ -23,4 +23,7 @@
 /* Plans*/
 
 @msg
-+user_msg(Msg) : true <- sendUser(journey(madrid, valencia, time(13,30), time(15,45), fare(turista, 22,50))).
+//+user_msg(Msg) : true <- sendUser(journey(madrid, valencia, time(13,30), time(15,45), fare(turista, 22,50))).
++user_msg(Msg) : true <- .send(nluAgent, tell, msg_NLU(Msg)).
++journey(From, To, Departure, Arrival, fare(FName, FPrice)): true
+	<-sendUser(journey(From,To,Departure,Arrival,fare(FName,FPrice))).

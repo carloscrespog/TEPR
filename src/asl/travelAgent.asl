@@ -29,7 +29,8 @@
 +journey(From, To, Departure, Arrival, fare(FName, FPrice))[query(Query)]
 	: 	true
 	<- 	.print(journey(From, To, Departura, Arrival, fare(FName, FPrice)));
-		+journey(From, To, Departure, Arrival, fare(FName, FPrice)).
+		+journey(From, To, Departure, Arrival, fare(FName, FPrice));
+		.send(userAgent,tell,journey(From, To, Departure, Arrival, fare(FName, FPrice))).
 +find(City_From,City_To,Day,Month,Year): true
 	<-  
 		findTravel(12345,City_From, City_To,Day, Month, Year).
