@@ -32,11 +32,5 @@
 
 @demo_nlu
 +!demo_nlu : true 
-	<- sendNLU("Quiero un viaje para 3 personas de madrid a valencia el 25 del 3 para 2012").
+	<- sendNLU("Quiero un viaje para 3 personas de madrid a valencia").
 	
-+location_from(City) : true <-  .send(travelAgent, tell, location_from(City)).
-+location_to(City) : true <-  .send(travelAgent, tell, location_to(City)).
-+day(Day) : true <-  .send(travelAgent, tell, day(Day)).
-+month(Month) : true <-  .send(travelAgent, tell, month(Month)).
-+year(Year) : true <-  .send(travelAgent, tell, year(Year)).
-
