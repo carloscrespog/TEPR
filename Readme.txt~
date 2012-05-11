@@ -1,0 +1,79 @@
+-Práctica de Tecnologías de pregunta y respuesta:
+
+		Realizada por Carlos Crespo González-Calero
+
+_____                 . . . . . o o o o o
+  __|[_]|__ ___________ _______    ____      o
+ |[] [] []| [] [] [] [] [_____(__  ][]]_n_n__][.
+_|________|_[_________]_[________]_|__|________)<
+  oo    oo 'oo      oo ' oo    oo 'oo 0000---oo\_
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+----Práctica básica:
+
+Para completar la práctica básica se ha implementado una grámatica básica suficiente para que
+ Nico pueda mostrar el resultado de una búsqueda del tipo:
+	"Quiero un viaje para 3 personas de madrid a barcelona el 01 del 07 para 2012"
+Imprimiendo en la extensión de chrome uno de los viajes encontrados en formato enriquecido. El proyecto entregado actualmente está configurado para buscar vuelos.
+
+Se han modificado las siguientes clases:
+
+travel.grf : para implementar un grafo sencillo que permita una respuesta 
+
+userAgent.asl : recibe los mensajes de la extensión chrome y los manda al nluAgent.asl
+	Para que funcione en la versión de trenes descomentar la parte comentada y comentar la función equivalente para aviones
+
+
+nluAgent.asl : recibe los mensajes de userAgent y los transforma en viajes
+	Para que funcione en la versión de trenes descomentar la línea que manda el viaje a travelAgent y comentar la equivalente de flightAgent
+
+travelAgent.asl : se encarga de buscar los trenes y mandarselos de vuelta a userAgent para que los muestre Nico desde su extensión.
+
+
+
+   	                       ___
+   		               \\ \
+   		                \\ `\
+               ___               \\  \
+              |    \              \\  `\
+              |     \              \ \\ \
+              |      \              \ (*)`\
+              | =(*)= \              \  \\ \        _//
+              |      __\__------------`-----`------(__)----._
+            __|---~~~       ____          ______    __    [][\___
+         --|___             |//| =(*)=  /~      )  |\\|          \__
+               ~~~---..._______________/      ,/_________________/
+                              (__)    /      /  =         (__)= : : : : : : : :
+                              //     /     ,/  =
+                             ..     /  // /    =
+                            ..     / (*),/    =
+                           ..     / // /       =
+                          ..     //  ,/       =
+                         ..     //  /         =
+                        ..     // ,/         \
+                       ..     //_/           \
+                      ..                    \
+                     ..                       \
+                    ..                       \
+                   ..                        \
+                  ..                        \
+
+----Práctica opcional: scrapping de vuelos
+	
+
+"Quiero el viaje más barato para 3 personas de madrid a copenhagen el 01 del 07 para 2012"
+"Quiero el viaje más barato para 3 personas de madrid a berlin el 12 del 08 para 2012"
+
+Se ha realizado un scrapping de la página de vuelosBaratos.es y como resultado se ha llegado a un servicio capaz de comparar entre más de 400 vuelos seleccionando únicamente el más barato, libre de publicidad, estrategias de márketing u otros factores que puedan perjudicar tu búsqueda por la verdadera ganga, ese vuelo que una vez lo reservas correrás a twittear lo barato que te ha salido y lo útil que te ha sido VuelosBaratosScrapper.java.
+A pesar de ser una versión beta con una gigantesca ToDo list, cumple su cometido, te encuentra "el vuelo".
+
+Para completar es
+
+
+
+
+
+
+
+

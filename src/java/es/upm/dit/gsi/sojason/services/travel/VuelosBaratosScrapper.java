@@ -81,6 +81,8 @@ public class VuelosBaratosScrapper implements WebServiceConnector{
 	public List<Perceptable> getSchedule (String origin, String destination, 
 			  String day, String month, String year) throws IOException {
 	
+		this.vuelosEncontrados=0;
+		this.bestPrice=9999;
 		
 		List<Perceptable> journeyList = new LinkedList<Perceptable>();
 		journeyList.add(new JourneyFlight());

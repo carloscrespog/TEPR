@@ -7,3 +7,11 @@
 	<- 	.print(journey(From, To, Departure, Arrival, Fare,Company));
 		+journey(From, To, Departure, Arrival, Fare,Company);
 		.send(userAgent,tell,journey(From, To, Departure, Arrival,Fare,Company)).
+		//.send(userAgent,tell,journey(From, To, Departure, Arrival, fare(Company, Fare))).
+		/*
++journey(From, To, Departure, Arrival, fare(FName, FPrice))[query(Query)]
+	: 	true
+	<- 	.print(journey(From, To, Departure, Arrival, fare(FName, FPrice)));
+		+journey(From, To, Departure, Arrival, fare(FName, FPrice));
+		.send(userAgent,tell,journey(From, To, Departure, Arrival, fare(FName, FPrice))).
+		*/

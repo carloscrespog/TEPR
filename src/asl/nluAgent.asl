@@ -19,7 +19,7 @@
 /* Initial beliefs and rules */
 
 /* Initial goals */
-!demo_nlu.
+//!demo_nlu.
 
 /* Plans */
 
@@ -33,7 +33,7 @@
 @demo_nlu
 
 +!demo_nlu : true 
-	<- sendNLU("Quiero un viaje para 3 personas de madrid a berlin el 10 del 06 para 2012").
+	<- sendNLU("Quiero un viaje para 3 personas de madrid a copenhagen el 01 del 07 para 2012").
 	
 +msg_NLU(Msg) : true
 	<-sendNLU(Msg).

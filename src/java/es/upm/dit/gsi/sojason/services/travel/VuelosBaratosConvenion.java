@@ -30,6 +30,9 @@ public class VuelosBaratosConvenion {
 		if(destCity.equals("berlin")){
 			destCity="BER";
 		}
+		if(destCity.equals("copenhagen")){
+			destCity="CPH";
+		}
 		String res=SERVICE_URL;
 		res=res.concat(DEP_PARAM);
 		res=res.concat("=");

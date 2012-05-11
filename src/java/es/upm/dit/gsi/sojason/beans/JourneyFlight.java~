@@ -233,17 +233,25 @@ public class JourneyFlight implements Perceptable{
 		percept = percept.concat("), ");
 		
 		Integer feei=new Integer(this.fee);
-
+/*
 			String perceptFare = percept.concat("fare(");
 			perceptFare = perceptFare.concat(feei.toString());
 			
 			perceptFare = perceptFare.concat("), ");
 			perceptFare = perceptFare.concat("company(");
-			perceptFare = perceptFare.concat(NotationUtils.compact(this.company));
+			perceptFare = perceptFare.concat(this.company);
 			perceptFare = perceptFare.concat(")"); 
 			perceptFare = perceptFare.concat(")"); // close journey
-		
+*/			
+			String perceptFare = percept.concat("fare(");
+			perceptFare = perceptFare.concat(this.company);
+			perceptFare = perceptFare.concat(feei.toString());
 			
+			perceptFare = perceptFare.concat(", ");
+			perceptFare = perceptFare.concat("company(");
+			
+			perceptFare = perceptFare.concat(")"); 
+			perceptFare = perceptFare.concat(")"); // close journey
 			// queryid annotation
 			perceptFare = perceptFare.concat("[query(");
 			perceptFare = perceptFare.concat(this.getQueryid());
