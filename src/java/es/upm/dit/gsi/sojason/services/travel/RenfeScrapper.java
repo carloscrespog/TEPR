@@ -26,7 +26,7 @@ import es.upm.dit.gsi.sojason.services.WebServiceConnector;
  * Class: RenfeScrapper
  *
  * @author Miguel Coronado (miguelcb@dit.upm.es)
- * @version Feb 27, 2012
+ * @version May 10, 2012
  *
  */
 public class RenfeScrapper implements WebServiceConnector {
@@ -141,7 +141,8 @@ public class RenfeScrapper implements WebServiceConnector {
 				/* They present 2 set of fares (Internet and station) so we skip
 				 * the header rows and divide by 2 to get the amount of fares to 
 				 * parse */
-				int toIndex = 1+(feeRows.size()-2)/2; 
+				//int toIndex = 1+(feeRows.size()-2)/2; 
+				int toIndex = feeRows.size();
 				
 				for(Element feeRow : feeRows.subList(fromIndex, toIndex)) {
 					Elements feeCells = feeRow.getElementsByTag("td");
@@ -168,7 +169,8 @@ public class RenfeScrapper implements WebServiceConnector {
 	 */
 	public static void main(String [] args) throws IOException{
 		RenfeScrapper rs = new RenfeScrapper();
-		List<Perceptable> list = rs.getSchedule ("Madrid", "ciudad real", "16", "04", "2012");
+		List<Perceptable> list = rs.getSchedule ("Madrid", "Valencia", "13", "05", "2012");
+		//List<Perceptable> list = rs.getSchedule ("Madrid", "Valladolid", "13", "05", "2012");
 		for(Perceptable journey : list){
 			System.out.println(journey);
 		}

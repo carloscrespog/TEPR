@@ -13,7 +13,6 @@ MAS web40sojason {
        userAgent;
        travelAgent;
        nluAgent;
-	   flightAgent;
 
    aslSourcePath: "src/asl"; 
 }

@@ -19,7 +19,7 @@
 /* Initial beliefs and rules */
 
 /* Initial goals */
-!demo_nlu.
+//!demo_nlu.
 
 /* Plans */
 
@@ -31,10 +31,10 @@
 			.send(Ag, tell, num_people(3)).
 
 @demo_nlu
-
+/*
 +!demo_nlu : true 
-	<- sendNLU("Quiero un viaje para 3 personas de madrid a berlin el 10 del 06 para 2012").
-	
+	<- sendNLU("Quiero un viaje para 3 personas de madrid a barcelona el 10 del 5 para 2012").
+	*/
 +msg_NLU(Msg) : true
 	<-sendNLU(Msg).
 /*	
@@ -45,5 +45,4 @@
 +year(Year) : true <-  .send(travelAgent, tell, year(Year)).
 */
 +location_from(City_From) : location_to(City_To) & day(Day) & month(Month) & year (Year) 
-		<- /*.send(travelAgent,tell,find(City_From,City_To,Day,Month,Year));*/
-		.send(flightAgent,tell,find(City_From,City_To,Day,Month,Year)).
+		<- .send(travelAgent,tell,find(City_From,City_To,Day,Month,Year)).

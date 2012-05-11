@@ -13,9 +13,11 @@ import es.upm.dit.gsi.httpserver.handlers.QAHandler;
 import es.upm.dit.gsi.jason.utils.CollectionUtils;
 import es.upm.dit.gsi.jason.utils.NotationUtils;
 import es.upm.dit.gsi.sojason.beans.Journey;
+
 import es.upm.dit.gsi.sojason.nlu.unitex.UnitexWrapper;
 import es.upm.dit.gsi.sojason.services.WebServiceConnector;
 import es.upm.dit.gsi.sojason.services.travel.RenfeScrapper;
+import es.upm.dit.gsi.sojason.services.travel.VuelosBaratosScrapper;
 
 /**
  *
@@ -34,6 +36,8 @@ public class TEPRModel extends SOModel{
 	
 	/** The RENFE Scraper */
 	private WebServiceConnector renfeScrapper;
+
+	private WebServiceConnector vuelosBaratosScrapper;
 	
 	/** The http server to connect the client */
 	private SimpleHttpServer httpServer;
@@ -52,6 +56,7 @@ public class TEPRModel extends SOModel{
 		super();
 		this.nluConnector = new UnitexWrapper();
 		this.renfeScrapper = new RenfeScrapper();
+		this.vuelosBaratosScrapper = new VuelosBaratosScrapper();
 		this.serverMessage = new MessageSignal();
 		
 		this.httpServer = new SimpleHttpServer(8000, "/"); // creates the server
@@ -111,6 +116,25 @@ public class TEPRModel extends SOModel{
 			this.setDataInbox(agName, serviceData);
 		} 
 		catch (Exception e){ return false; }
+		
+		logger.info("findTravel call completed successfully");
+		return true;
+		
+	}
+	
+	public boolean findFlight (String agName, Collection<Term> params) {
+		
+		logger.info("Entering findFlight...");
+		try{
+			String[] strParams = CollectionUtils.toStringArray(params);
+
+			Collection<Literal> serviceData = vuelosBaratosScrapper.call(strParams);
+			if(serviceData == null){ return false; }
+			
+			// put data into mailbox
+			this.setDataInbox(agName, serviceData);
+		} 
+		catch (Exception e){ logger.info("fallo en vuelosBaratosScrapper");return false; }
 		
 		logger.info("findTravel call completed successfully");
 		return true;

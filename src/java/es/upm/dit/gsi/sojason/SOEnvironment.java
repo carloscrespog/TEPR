@@ -67,6 +67,10 @@ public class SOEnvironment extends Environment {
     		result = this.model.findTravel(agName, terms);
     		return true;
     	}
+        else if (functor.equals("findFlight")) {
+            result = this.model.findFlight(agName, terms);
+            return true;
+        }
         else {
         	logger.info(action + " was not implemented.");
         }
